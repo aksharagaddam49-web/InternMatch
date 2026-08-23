@@ -519,3 +519,241 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+/* =====================================================
+   PROFILE PAGE
+   ===================================================== */
+
+.profile-page {
+    min-height: 100vh;
+    padding: 70px 8% 100px;
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc 0%,
+        #eef2ff 100%
+    );
+}
+
+
+/* ---------- PROFILE HEADER ---------- */
+
+.profile-header {
+    max-width: 800px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.profile-header h1 {
+    font-size: 46px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+    color: #172033;
+}
+
+.profile-header h1 span {
+    color: #6366f1;
+}
+
+.profile-header > p:last-child {
+    color: #64748b;
+    font-size: 17px;
+}
+
+
+/* ---------- SUCCESS MESSAGE ---------- */
+
+.success-message {
+    max-width: 700px;
+    margin: 0 auto 25px;
+
+    padding: 14px 20px;
+
+    background: #f0fdf4;
+    color: #15803d;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ---------- FORM ---------- */
+
+.profile-form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* ---------- FORM SECTION ---------- */
+
+.form-section {
+    background: white;
+
+    padding: 32px;
+
+    margin-bottom: 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.form-section h2 {
+    font-size: 21px;
+    color: #172033;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eef0f4;
+}
+
+
+/* ---------- FORM GRID ---------- */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* ---------- FORM GROUP ---------- */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* ---------- INPUTS ---------- */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d7dce5;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Focus effect */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 110px;
+}
+
+
+/* ---------- HELP TEXT ---------- */
+
+.form-help {
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin-top: -12px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------- SUBMIT ---------- */
+
+.form-actions {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 35px;
+}
+
+.form-actions .primary-btn {
+    border: none;
+
+    padding: 14px 32px;
+
+    font-size: 15px;
+}
+
+
+/* ---------- PROFILE RESPONSIVE ---------- */
+
+@media (max-width: 700px) {
+
+    .profile-page {
+        padding: 45px 5% 70px;
+    }
+
+    .profile-header h1 {
+        font-size: 36px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        padding: 24px 20px;
+    }
+}
