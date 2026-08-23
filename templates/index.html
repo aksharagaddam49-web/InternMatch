@@ -3,14 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternMatch</title>
+
+    <title>InternMatch | Find Internships You're Eligible For</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <h1>InternMatch</h1>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            Intern<span>Match</span>
+        </div>
 
-    <p>Find internships you're actually eligible for.</p>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Internships</a>
+            <a href="#">My Profile</a>
+            <a href="#">Saved</a>
+        </div>
+
+        <button class="login-btn">Login</button>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🎯 Smart Internship Matching
+            </div>
+
+            <h1>
+                Find internships
+                <span>you're actually eligible for.</span>
+            </h1>
+
+            <p>
+                Stop wasting time checking requirements manually.
+                InternMatch compares your education, skills and experience
+                with internship requirements and finds your best matches.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn">
+                    Build My Profile →
+                </button>
+
+                <button class="secondary-btn">
+                    Explore Internships
+                </button>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="card-header">
+                <span>✨ Your Match</span>
+                <span class="match-score">92%</span>
+            </div>
+
+            <h3>AI / ML Intern</h3>
+
+            <p class="company">
+                🚀 TechNova Solutions
+            </p>
+
+            <div class="skills">
+                <span>Python ✓</span>
+                <span>SQL ✓</span>
+                <span>Machine Learning ✓</span>
+            </div>
+
+            <div class="eligible">
+                🟢 You're eligible
+            </div>
+
+            <button class="view-btn">
+                View Internship →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+
+        <div class="section-heading">
+            <p class="section-label">HOW IT WORKS</p>
+
+            <h2>
+                Your internship search,
+                <span>made simpler.</span>
+            </h2>
+
+            <p>
+                Three simple steps between you and internships
+                that actually fit your profile.
+            </p>
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step-card">
+                <div class="step-number">01</div>
+
+                <div class="step-icon">👤</div>
+
+                <h3>Create your profile</h3>
+
+                <p>
+                    Add your degree, branch, year, CGPA,
+                    skills and experience.
+                </p>
+            </div>
+
+
+            <div class="step-card">
+                <div class="step-number">02</div>
+
+                <div class="step-icon">🔍</div>
+
+                <h3>We check eligibility</h3>
+
+                <p>
+                    InternMatch compares your profile
+                    with internship requirements.
+                </p>
+            </div>
+
+
+            <div class="step-card">
+                <div class="step-number">03</div>
+
+                <div class="step-icon">🚀</div>
+
+                <h3>Get your best matches</h3>
+
+                <p>
+                    Discover internships ranked by
+                    your eligibility and skill match.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature-text">
+
+            <p class="section-label">WHY INTERNMATCH?</p>
+
+            <h2>
+                Apply smarter,
+                <span>not harder.</span>
+            </h2>
+
+            <p>
+                Instead of scrolling through hundreds of internship
+                listings, focus on opportunities where you actually
+                have a chance.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div>✅</div>
+                <h3>Eligibility Check</h3>
+                <p>
+                    Know instantly whether you meet the basic requirements.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div>⭐</div>
+                <h3>Match Score</h3>
+                <p>
+                    See how closely your skills match each internship.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div>📌</div>
+                <h3>Save Internships</h3>
+                <p>
+                    Keep interesting opportunities in one place.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div>📅</div>
+                <h3>Deadline Tracking</h3>
+                <p>
+                    Never miss an application deadline.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Call To Action -->
+    <section class="cta">
+
+        <h2>
+            Ready to find your next internship?
+        </h2>
+
+        <p>
+            Create your profile and let InternMatch do the searching.
+        </p>
+
+        <button class="primary-btn">
+            Get Started →
+        </button>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="logo">
+            Intern<span>Match</span>
+        </div>
+
+        <p>
+            Find opportunities that fit you.
+        </p>
+
+        <p class="copyright">
+            © 2026 InternMatch. Built for students.
+        </p>
+
+    </footer>
 
 </body>
 </html>
