@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Internships | InternMatch</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Intern<span>Match</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/internships">
+                Internships
+            </a>
+
+            <a href="/profile">
+                My Profile
+            </a>
+
+            <a href="/saved">
+                Saved
+            </a>
+
+        </div>
+
+        <a href="/login" class="login-btn">
+            Login
+        </a>
+
+    </nav>
+
+
+    <!-- Internship Page -->
+
+    <main class="internship-page">
+
+        <div class="internship-header">
+
+            <p class="section-label">
+                INTERNSHIP OPPORTUNITIES
+            </p>
+
+            <h1>
+                Find your next
+                <span>opportunity.</span>
+            </h1>
+
+            <p>
+                Explore internships matched to your profile.
+            </p>
+
+        </div>
+
+
+        <!-- No Profile -->
+
+        {% if not has_profile %}
+
+        <div class="profile-warning">
+
+            <h2>👋 Create your profile first</h2>
+
+            <p>
+                Tell us about your education, CGPA and skills
+                so InternMatch can calculate your internship matches.
+            </p>
+
+            <a href="/profile" class="primary-btn">
+                Build My Profile →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Internship Cards -->
+
+        <div class="internship-grid">
+
+            {% for result in internship_results %}
+
+            {% set internship = result["internship"] %}
+
+            <div class="internship-card">
+
+
+                <!-- Top -->
+
+                <div class="internship-top">
+
+                    <div class="company-icon">
+                        🚀
+                    </div>
+
+                    <div class="internship-type">
+                        {{ internship["work_type"] }}
+                    </div>
+
+                </div>
+
+
+                <!-- Title -->
+
+                <h2>
+                    {{ internship["title"] }}
+                </h2>
+
+
+                <p class="company-name">
+                    {{ internship["company"] }}
+                </p>
+
+
+                <!-- Eligibility -->
+
+                {% if result["eligible"] %}
+
+                <span class="match-badge eligible-badge">
+                    ✅ Eligible
+                </span>
+
+                {% else %}
+
+                <span class="match-badge not-eligible-badge">
+                    ❌ Not Eligible
+                </span>
+
+                {% endif %}
+
+
+                <!-- Match Score -->
+
+                <div class="match-score-box">
+
+                    <div>
+
+                        <span>
+                            Profile Match
+                        </span>
+
+                        <strong>
+                            {{ result["match_score"] }}%
+                        </strong>
+
+                    </div>
+
+                    <div class="score-bar">
+
+                        <div
+                            class="score-fill"
+                            style="width: {{ result['match_score'] }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Internship Details -->
+
+                <div class="internship-details">
+
+                    <span>
+                        📍 {{ internship["location"] }}
+                    </span>
+
+                    <span>
+                        🎓 CGPA {{ internship["min_cgpa"] }}+
+                    </span>
+
+                    <span>
+                        📅 Apply by
+                        {{ internship["application_deadline"] }}
+                    </span>
+
+                </div>
+
+
+                <!-- Skills -->
+
+                <div class="internship-skills">
+
+                    {% for skill in internship["required_skills"].split(",") %}
+
+                    <span>
+                        {{ skill }}
+                    </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Matched Skills -->
+
+                {% if result["matched_skills"] %}
+
+                <div class="skill-match">
+
+                    <strong>
+                        ✓ Your matching skills:
+                    </strong>
+
+                    {{ result["matched_skills"] | join(", ") }}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- Missing Skills -->
+
+                {% if result["missing_skills"] %}
+
+                <div class="missing-skills">
+
+                    <strong>
+                        Skills to improve:
+                    </strong>
+
+                    {{ result["missing_skills"] | join(", ") }}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- Eligible Years -->
+
+                <div class="eligible-years">
+
+                    <strong>
+                        Eligible:
+                    </strong>
+
+                    {{ internship["eligible_years"].replace(",", ", ") }}
+
+                </div>
+
+
+                <!-- Apply -->
+
+                <a
+                    href="{{ internship['apply_link'] }}"
+                    class="view-btn"
+                >
+                    View Internship →
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="logo">
+            Intern<span>Match</span>
+        </div>
+
+        <p>
+            Find opportunities that fit you.
+        </p>
+
+        <p class="copyright">
+            © 2026 InternMatch. Built for students.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
