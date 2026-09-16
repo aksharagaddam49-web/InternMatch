@@ -190,21 +190,47 @@ def calculate_match(student, internship):
         skill_score = (
             len(matched_skills)
             / len(required_skills)
-        ) * 50
+        ) * 40
 
     else:
 
-        skill_score = 50
+        skill_score = 40
 
 
     # ---------- CGPA SCORE ----------
 
-    cgpa_score = 30 if cgpa_eligible else 0
+    cgpa_score = 25 if cgpa_eligible else 0
 
 
     # ---------- YEAR SCORE ----------
 
-    year_score = 20 if year_eligible else 0
+    year_score = 15 if year_eligible else 0
+
+
+    # ---------- LOCATION CHECK ----------
+
+    student_location = (student["location"] or "").strip().lower()
+    internship_location = (internship["location"] or "").strip().lower()
+
+    if internship_location == "remote":
+        location_score = 10
+    elif student_location == internship_location:
+        location_score = 10
+    else:
+        location_score = 0
+
+
+    # ---------- WORK TYPE CHECK ----------
+
+    student_work_type = (student["work_type"] or "").strip().lower()
+    internship_work_type = (internship["work_type"] or "").strip().lower()
+
+    if student_work_type == "any":
+        work_type_score = 10
+    elif student_work_type == internship_work_type:
+        work_type_score = 10
+    else:
+        work_type_score = 0
 
 
     # ---------- TOTAL SCORE ----------
@@ -212,7 +238,9 @@ def calculate_match(student, internship):
     match_score = round(
         cgpa_score +
         year_score +
-        skill_score
+        skill_score +
+        location_score +
+        work_type_score
     )
 
 
@@ -227,7 +255,6 @@ def calculate_match(student, internship):
         "matched_skills": sorted(matched_skills),
         "missing_skills": sorted(missing_skills)
     }
-
 # =====================================================
 # HOME
 # =====================================================
@@ -249,7 +276,7 @@ def profile():
         name = request.form.get("name")
         email = request.form.get("email")
         degree = request.form.get("degree")
-        branch = request.form.get("branch")
+        branch = request.form.get("branch")        
         graduation_year = request.form.get("graduation_year")
         current_year = request.form.get("current_year")
         cgpa = request.form.get("cgpa")
